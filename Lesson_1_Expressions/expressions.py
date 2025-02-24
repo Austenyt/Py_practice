@@ -545,12 +545,26 @@ x = int(input("Введите x\n"))
 y = int(input("Введите y\n"))
 
 if N > M:
-    length = N
-elif:
+    pool_length = N
+    pool_width = M
+else:
+    pool_length = M
+    pool_width = N
 
+min_length_1 = y
+min_length_2 = pool_length - y
+min_width_1 = x
+min_width_2 = pool_width - x
 
-short_length = min(width - x, width - (width - x))
-short_width = min(length - y, length - (length - y))
-
-response = min(short_length, short_width)
-print(response)
+if min_length_1 > min_length_2:
+    min_disp_y = min_length_2
+else:
+    min_disp_y = min_length_1
+if min_width_1 > min_width_2:
+    min_disp_x = min_width_2
+else:
+    min_disp_x = min_width_1
+if min_disp_x > min_disp_y:
+    print(min_disp_y)
+else:
+    print(min_disp_x)
