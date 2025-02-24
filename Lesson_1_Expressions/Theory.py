@@ -45,12 +45,31 @@ n школьников делят k яблок поровну, неделящи�
 
 """
 
-n = int(input())
-if n < 3 or n == 12:
-    print("Зима")
-elif n < 6:
-    print("Весна")
-elif n < 9:
-    print("Лето")
-else:
-    print("Осень")
+# n = int(input())
+# if n < 3 or n == 12:
+#     print("Зима")
+# elif n < 6:
+#     print("Весна")
+# elif n < 9:
+#     print("Лето")
+# else:
+#     print("Осень")
+
+
+# s = "hello world"
+# print(s[1:-1])
+# print(s[1::2])
+# print(s[::-1])
+# print(s[::-2])
+
+# s = input()
+#
+# if s == s[::-1]:
+#     print("ok")
+# else:
+#     print("nok")
+
+s = input()
+
+i = s.find(" ")
+print(s[i+1:] + " " + s[:i])

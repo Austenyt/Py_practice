@@ -389,9 +389,9 @@ python
 # number_2 = int(input("Введите число 2\n"))
 # number_3 = int(input("Введите число 3\n"))
 #
-# if number_1 > number_2:
+# if number_1 > number_2 and number_1 > number_3:
 #     print(number_1)
-# elif number_2 > number_3:
+# elif number_2 > number_1 and number_2 > number_3:
 #     print(number_2)
 # else:
 #     print(number_3)
@@ -421,9 +421,9 @@ python
 # total_2 = number_2 + number_3
 # total_3 = number_1 + number_3
 #
-# if total_1 > total_2:
+# if total_1 > total_2 and total_1 > total_3:
 #     print(total_1)
-# elif total_2 > total_3:
+# elif total_2 > total_1 and total_2 > total_3:
 #     print(total_2)
 # else:
 #     print(total_3)
@@ -539,32 +539,32 @@ x метров от одного из длинных бортиков (не об
 Вывод:
 8
 """
-N = int(input("Введите N\n"))
-M = int(input("Введите M\n"))
-x = int(input("Введите x\n"))
-y = int(input("Введите y\n"))
-
-if N > M:
-    pool_length = N
-    pool_width = M
-else:
-    pool_length = M
-    pool_width = N
-
-min_length_1 = y
-min_length_2 = pool_length - y
-min_width_1 = x
-min_width_2 = pool_width - x
-
-if min_length_1 > min_length_2:
-    min_disp_y = min_length_2
-else:
-    min_disp_y = min_length_1
-if min_width_1 > min_width_2:
-    min_disp_x = min_width_2
-else:
-    min_disp_x = min_width_1
-if min_disp_x > min_disp_y:
-    print(min_disp_y)
-else:
-    print(min_disp_x)
+# N = int(input("Введите N\n"))
+# M = int(input("Введите M\n"))
+# x = int(input("Введите x\n"))
+# y = int(input("Введите y\n"))
+#
+# if N > M:
+#     pool_length = N
+#     pool_width = M
+# else:
+#     pool_length = M
+#     pool_width = N
+#
+# min_length_1 = y
+# min_length_2 = pool_length - y
+# min_width_1 = x
+# min_width_2 = pool_width - x
+#
+# if min_length_1 > min_length_2:
+#     min_disp_y = min_length_2
+# else:
+#     min_disp_y = min_length_1
+# if min_width_1 > min_width_2:
+#     min_disp_x = min_width_2
+# else:
+#     min_disp_x = min_width_1
+# if min_disp_x > min_disp_y:
+#     print(min_disp_y)
+# else:
+#     print(min_disp_x)
