@@ -54,22 +54,3 @@ n школьников делят k яблок поровну, неделящи�
 #     print("Лето")
 # else:
 #     print("Осень")
-
-
-# s = "hello world"
-# print(s[1:-1])
-# print(s[1::2])
-# print(s[::-1])
-# print(s[::-2])
-
-# s = input()
-#
-# if s == s[::-1]:
-#     print("ok")
-# else:
-#     print("nok")
-
-s = input()
-
-i = s.find(" ")
-print(s[i+1:] + " " + s[:i])
