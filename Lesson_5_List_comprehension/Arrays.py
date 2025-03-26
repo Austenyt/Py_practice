@@ -44,12 +44,9 @@ lst_2 = [5, 6, 7, 8]
 #     [2, 5, 8],
 #     [3, 6, 9]
 # ]
-# lst_1 = [array_1[i-i][i] + array_2[i-i][i] for i in range(len(array_1))]
-# lst_2 = [array_1[i-i+1][i] + array_2[i-i+1][i] for i in range(len(array_1))]
-# lst_3 = [array_1[i-i+2][i] + array_2[i-i+2][i] for i in range(len(array_1))]
-# print(lst_1)
-# print(lst_2)
-# print(lst_3)
+# array_3 = [[array_1[i-i+j][i] + array_2[i-i+j][i] for i in range(len(array_1))] for j in range(len(array_1))]
+# for i in array_3:
+#     print(i)
 """
 Дана матрица, вывести обе её диагонали задом наперед (2 for или 2 генератора)
 допустим матрица от 1 до 9
@@ -63,20 +60,17 @@ lst_2 = [5, 6, 7, 8]
 #     [7, 8, 9]
 # ]
 # lst_1 = [array[2-i][2-i] for i in range(len(array))]
-# lst_2 = [array[i][2-i] for i in range(len(array))]
+# lst_2 = [array[2-i][i] for i in range(len(array))]
 # print(lst_1)
 # print(lst_2)
 """
 Транспонировать матрицу.
 """
-array = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-lst_1 = [array[i][i-i] for i in range(len(array))]
-lst_2 = [array[i][i-i+1] for i in range(len(array))]
-lst_3 = [array[i][i-i+2] for i in range(len(array))]
-print(lst_1)
-print(lst_2)
-print(lst_3)
+# array = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+# array_1 = [[array[i][i-i+j] for i in range(len(array))] for j in range(len(array))]
+# for i in array_1:
+#     print(i)
