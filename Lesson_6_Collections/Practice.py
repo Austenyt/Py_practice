@@ -15,15 +15,17 @@
 # words_to_encode = [".--- .- ...- .-", ".--. -.-- - .... --- -.", ".-. ..- -... -.--", ".--. .... .--.",
 #                    "..-. --- .-. - .-. .- -.", ".--- .- ...- .- ... -.-. .-. .. .--. -", "-.- --- - .-.. .. -.",
 #                    "... .-- .. ..-. -", "-... .- ... .. -.-.", ".--. .- ... -.-. .- .-.. "]
-# # for word in words_to_decode:
-# #     string_1 = ''
-# #     for char in word:
-# #         string_1 += morse[char] + ' '
-# #     print(string_1)
-# for word in words_to_encode:
+# for word in words_to_decode:
 #     string_1 = ''
 #     for char in word:
-#         string_1 += morse.get(char)
+#         string_1 += morse[char] + ' '
+#     print(string_1)
+# morse_reversed = {v: k for k, v in morse.items()}
+# for word in words_to_encode:
+#     word = word.split()
+#     string_1 = ''
+#     for char in word:
+#         string_1 += morse_reversed[char]
 #     print(string_1)
 
 """
@@ -36,6 +38,8 @@
 # list1 = [1, 2, 3, 4, 5]
 # list2 = [3, 4, 5, 6, 7]
 # print(list(set(list1) | set(list2)))
+# print(list(set(list1) & set(list2)))
+# print(list(set(list1) - set(list2)))
 """
 У вас есть два множества чисел. Нужно выполнить все возможные операции и вывести результат:
 
@@ -54,26 +58,67 @@
 Напишите программу, которая принимает строку и подсчитывает, сколько раз каждое слово встречается в тексте. Выведите 
 результат в виде словаря, где ключами являются слова, а значениями — их количество.
 """
-text = "hello world hello Python world hello"
-dictionary = {}
-for word in text:
-    print(word)
+# text = "hello world hello Python world hello"
+# text = text.split()
+# dictionary = {}
+# for word in text:
+#     if dictionary.get(word):
+#         dictionary[word] += 1
+#     else:
+#         dictionary[word] = 1
+# print(dictionary)
+
 """
 У вас есть словарь, где ключи — это имена студентов, а значения — их оценки. Напишите программу, которая инвертирует 
 этот словарь, т.е. делает значения ключами, а ключи значениями.
-
-students_scores = {"Alice": 85, "Bob": 92, "Charlie": 78}
 """
-
+# students_scores = {"Alice": 85, "Bob": 92, "Charlie": 78}
 """
 Вывести имя человека, который набрал максимальный бал по математике из списка словарей.
-
-
-students = [
-    {'name': 'Alice', 'math': 90, 'english': 85},
-    {'name': 'Bob', 'math': 85, 'english': 92},
-    {'name': 'Charlie', 'math': 88}
-]
-
 Вывести средний балл по английскому
 """
+# students = [
+#     {'name': 'Alice', 'math': 90, 'english': 85},
+#     {'name': 'Bob', 'math': 85, 'english': 92},
+#     {'name': 'Charlie', 'math': 88}
+# ]
+# m = 0
+# s = ''
+# eng_lst = []
+# for student in students:
+#     score = student['math']
+#     if score > m:
+#         m = score
+#         s = student['name']
+#     if student.get('english'):
+#         eng_lst.append(student['english'])
+# print(s)
+# print(sum(eng_lst) / len(eng_lst))
+
+"""
+Реализуйте процесс игры "Скрабл" в терминале. Гугл в помощь. )
+"""
+# letters = {1: 'AEIOULNSTR',
+#            2: 'DG',
+#            3: 'BCMP',
+#            4: 'FHVWY',
+#            5: 'K',
+#            8: 'JZ',
+#            10: 'QZ'
+#            }
+# word = input().upper()
+# for i in word:
+
+"""
+Напишите программу, которая принимает список строк и создает словарь, где ключ - это первая буква, а значение - список 
+строк, начинающихся на эту букву.
+words = ['apple', 'banana', 'apricot', 'blueberry', 'cherry']
+# Результат: {'a': ['apple', 'apricot'], 'b': ['banana', 'blueberry'], 'c': ['cherry']}
+"""
+words = ['apple', 'banana', 'apricot', 'blueberry', 'cherry']
+dictionary = {}
+lst = []
+for word in words:
+    if dictionary.get(word[0]):
+        lst.append(word)
+print(dictionary)
