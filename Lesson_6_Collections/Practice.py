@@ -58,15 +58,15 @@
 Напишите программу, которая принимает строку и подсчитывает, сколько раз каждое слово встречается в тексте. Выведите 
 результат в виде словаря, где ключами являются слова, а значениями — их количество.
 """
-# text = "hello world hello Python world hello"
-# text = text.split()
-# dictionary = {}
-# for word in text:
-#     if dictionary.get(word):
-#         dictionary[word] += 1
-#     else:
-#         dictionary[word] = 1
-# print(dictionary)
+text = "hello world hello Python world hello"
+text = text.split()
+dictionary = {}
+for word in text:
+    if word in dictionary:# if dictionary.get(word):
+        dictionary[word] += 1
+    else:
+        dictionary[word] = 1
+print(dictionary)
 
 """
 У вас есть словарь, где ключи — это имена студентов, а значения — их оценки. Напишите программу, которая инвертирует 
@@ -115,10 +115,10 @@
 words = ['apple', 'banana', 'apricot', 'blueberry', 'cherry']
 # Результат: {'a': ['apple', 'apricot'], 'b': ['banana', 'blueberry'], 'c': ['cherry']}
 """
-words = ['apple', 'banana', 'apricot', 'blueberry', 'cherry']
-dictionary = {}
-lst = []
-for word in words:
-    if dictionary.get(word[0]):
-        lst.append(word)
-print(dictionary)
+# words = ['apple', 'banana', 'apricot', 'blueberry', 'cherry']
+# dictionary = {}
+# lst = []
+# for word in words:
+#     if dictionary.get(word[0]):
+#         lst.append(word)
+# print(dictionary)
