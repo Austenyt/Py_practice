@@ -27,6 +27,7 @@ def lst_sort(lst, x):
 """
 
 import bisect
+
 #
 #
 # def lst_sort(lst, x):
@@ -62,7 +63,6 @@ target = 2
             return i
 """
 
-
 # def first_in(arr, target):
 #     left = 0
 #     right = len(arr) - 1
@@ -97,7 +97,6 @@ target = 2
 #             return i - 1
 """
 
-
 # def last_in(arr, target):
 #     left = 0
 #     right = len(arr) - 1
@@ -122,18 +121,28 @@ target = 2
 # bisect.insort_left(arr, x)
 # print(arr)
 
+"""
+Вставить элемент в сортированный список с помощью бинарного поиска (элемента в списке изначально нет!)
+"""
+
+
 def insert(arr, x):
-    arr = [1, 3, 4, 6, 8]
-    x = 5
     left = 0
     right = len(arr) - 1
-    while right >= left:
+    while True:
         mid = (right + left) // 2
-        if arr[mid] < x:
+        a = mid
+        if arr[a] < x:
+            left = mid + 1
+        else:
+            right = mid - 1
+        if arr[mid] > x:
+            arr.insert(a, x)
+            return arr
+        else:
+            continue
 
-        elif arr[mid] > x:
-                right = mid - 1
-            else:
-                left = mid + 1
-        return None
 
+arr = [1, 3, 4, 6, 8]
+x = 5
+print(insert(arr, x))
