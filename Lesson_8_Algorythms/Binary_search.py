@@ -126,23 +126,20 @@ target = 2
 """
 
 
-def insert(arr, x):
-    left = 0
-    right = len(arr) - 1
-    while True:
-        mid = (right + left) // 2
-        a = mid
-        if arr[a] < x:
-            left = mid + 1
-        else:
-            right = mid - 1
-        if arr[mid] > x:
-            arr.insert(a, x)
-            return arr
-        else:
-            continue
-
-
-arr = [1, 3, 4, 6, 8]
-x = 5
-print(insert(arr, x))
+# def insert(arr, x):
+#     left = 0
+#     right = len(arr) - 1
+#     while right >= left:
+#         mid = (right + left) // 2
+#         print(left, mid, right)
+#         if arr[mid] < x:
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     arr.insert(left, x)
+#     return arr
+#
+#
+# arr = [1, 3, 4, 6, 8]
+# x = 5
+# print(insert(arr, x))
