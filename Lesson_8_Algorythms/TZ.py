@@ -51,16 +51,26 @@ def view():
 
 
 def update():
-    with open('file.txt', 'a', encoding='utf-8') as f:
-        b = f.readlines()
-        print(b)
-        data = b + '\n'
-        f.write(data)
-        print(b)
+    print("Выберите индекс задачи для редактирования:\n")
+    c = read_file()
+    for index, task in enumerate(c, 1):
+        print(f'[{index}] {task}')
+    index = int(input("Введите индекс задачи для редактирования\n"))
+    new_task = input("Введите новый текст задачи\n")
+    c[index-1] = new_task + '\n'
+    with open('file.txt', 'w', encoding='utf-8') as f:
+        f.writelines(c)
 
 
 def delete():
-    pass
+    print("Выберите индекс задачи для удаления:\n")
+    c = read_file()
+    for index, task in enumerate(c, 1):
+        print(f'[{index}] {task}')
+    index = int(input("Введите индекс задачи для удаления\n"))
+    del c[index - 1]
+    with open('file.txt', 'w', encoding='utf-8') as f:
+        f.writelines(c)
 
 
 def main():
