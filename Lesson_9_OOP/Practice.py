@@ -1,70 +1,73 @@
 # Класс "Круг"
 # Напишите класс Circle, который имеет свойство radius (радиус) и методы для вычисления площади и периметра круга.
 
-class Circle:
+# class Circle:
+#
+#     def __init__(self, radius):
+#         self._radius = radius
+#
+#     @property
+#     def square(self):
+#         return 3.14 * self._radius ** 2
+#
+#     @property
+#     def perimeter(self):
+#         return 2 * 3.14 * self._radius
+#
+#     @property
+#     def radius(self):
+#         return self._radius
+#
+#     @radius.setter
+#     def radius(self, new_radius):
+#         self._radius = new_radius
+#
+#
+# circle = Circle(10)
+# print(circle.square)
+# print(circle.perimeter)
+# circle.radius = 20
+# print(circle.square)
+# print(circle.perimeter)
 
-    def __init__(self, radius):
-        self._radius = radius
-
-    @property
-    def square(self):
-        return 3.14 * self._radius ** 2
-
-    @property
-    def perimeter(self):
-        return 2 * 3.14 * self._radius
-
-    @property
-    def radius(self):
-        return self._radius
-
-    @radius.setter
-    def radius(self, new_radius):
-        self._radius = new_radius
-
-
-circle = Circle(10)
-print(circle.square)
-print(circle.perimeter)
-circle.radius = 20
-print(circle.square)
-print(circle.perimeter)
 
 # Создайте класс Student с атрибутами name (имя) и grades (список оценок).
 # Добавьте метод для добавления новой оценки, а также для вычисления среднего балла.
 
-# class Student:
-#
-#     def __init__(self, name):
-#         # Инициализация имени студента и пустого списка оценок
-#         self.name = name
-#         self.grades = []
-#
-#     def get_name(self):
-#         return self.name
-#
-#     def set_name(self, name):
-#         self.name = name
-#
-#     def add_grade(self, grade):
-#         # Метод для добавления новой оценки
-#         self.grades.append(grade)
-#
-#     def add_grades(self, grades):
-#         # Метод для добавления новой оценки
-#         self.grades.extend(grades)
-#
-#     def get_average_grade(self):
-#         # Метод для вычисления среднего балла
-#         return sum(self.grades) / len(self.grades)
-#
-#
-# student = Student('John')
-# student.add_grade(5)
-# student.add_grade(3)
-# student.add_grade(3)
-# print(f"Средний балл для {student.get_name()}: {student.get_average_grade()}")
+class Student:
 
+    def __init__(self, name):
+        # Инициализация имени студента и пустого списка оценок
+        self._name = name
+        self.grades = []
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        self._name = name
+
+    @grade.setter
+    def grade(self, grade):
+        # Метод для добавления новой оценки
+        self.grades.append(grade)
+
+    def add_grades(self, grades):
+        # Метод для добавления новой оценки
+        self.grades.extend(grades)
+
+    def get_average_grade(self):
+        # Метод для вычисления среднего балла
+        return sum(self.grades) / len(self.grades)
+
+
+student = Student('John')
+student.add_grade(5)
+student.add_grade(3)
+student.add_grade(3)
+print(f"Средний балл для {student.get_name()}: {student.get_average_grade()}")
 
 # Создайте класс Triangle, который будет содержать атрибуты для длины сторон a, b, c.
 # Реализуйте методы для вычисления периметра и площади треугольника.
