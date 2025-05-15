@@ -34,40 +34,40 @@
 # Создайте класс Student с атрибутами name (имя) и grades (список оценок).
 # Добавьте метод для добавления новой оценки, а также для вычисления среднего балла.
 
-class Student:
-
-    def __init__(self, name):
-        # Инициализация имени студента и пустого списка оценок
-        self._name = name
-        self.grades = []
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        self._name = name
-
-    @grade.setter
-    def grade(self, grade):
-        # Метод для добавления новой оценки
-        self.grades.append(grade)
-
-    def add_grades(self, grades):
-        # Метод для добавления новой оценки
-        self.grades.extend(grades)
-
-    def get_average_grade(self):
-        # Метод для вычисления среднего балла
-        return sum(self.grades) / len(self.grades)
-
-
-student = Student('John')
-student.add_grade(5)
-student.add_grade(3)
-student.add_grade(3)
-print(f"Средний балл для {student.get_name()}: {student.get_average_grade()}")
+# class Student:
+#
+#     def __init__(self, name):
+#         # Инициализация имени студента и пустого списка оценок
+#         self._name = name
+#         self._grades = []
+#
+#     @property
+#     def name(self):
+#         return self._name
+#
+#     @name.setter
+#     def name(self, name):
+#         self._name = name
+#
+#     def add_grade(self, grade):
+#         # Метод для добавления новой оценки
+#         self._grades.append(grade)
+#
+#     def add_grades(self, grades):
+#         # Метод для добавления новой оценки
+#         self._grades.extend(grades)
+#
+#     @property
+#     def average_grade(self):
+#         # Метод для вычисления среднего балла
+#         return sum(self._grades) / len(self._grades)
+#
+#
+# student = Student('John')
+# student.add_grade(5)
+# student.add_grade(3)
+# student.add_grade(3)
+# print(f"Средний балл для {student.name}: {student.average_grade}")
 
 # Создайте класс Triangle, который будет содержать атрибуты для длины сторон a, b, c.
 # Реализуйте методы для вычисления периметра и площади треугольника.
@@ -75,21 +75,23 @@ print(f"Средний балл для {student.get_name()}: {student.get_averag
 # class Triangle:
 #
 #     def __init__(self, a, b, c):
-#         self.a = a
-#         self.b = b
-#         self.c = c
+#         self._a = a
+#         self._b = b
+#         self._c = c
 #
-#     def get_perimeter(self):
-#         return self.a + self.b + self.c
+#     @property
+#     def perimeter(self):
+#         return self._a + self._b + self._c
 #
-#     def get_square(self):
-#         p = self.get_perimeter() / 2
-#         return (p * (p - self.a) * (p - self.b) * (p - self.c)) ** 0.5
+#     @property
+#     def square(self):
+#         p = self.perimeter / 2
+#         return (p * (p - self._a) * (p - self._b) * (p - self._c)) ** 0.5
 #
 #
-# triangle = Triangle(1, 2, 3)
-# print(triangle.get_perimeter())
-# print(triangle.get_square())
+# triangle = Triangle(2, 2, 3)
+# print(triangle.perimeter)
+# print(triangle.square)
 
 
 # Создайте класс Book с атрибутами title (название), author (автор), year (год издания).
@@ -98,16 +100,17 @@ print(f"Средний балл для {student.get_name()}: {student.get_averag
 # class Book:
 #
 #     def __init__(self, title, author, year):
-#         self.title = title
-#         self.author = author
-#         self.year = year
+#         self._title = title
+#         self._author = author
+#         self._year = year
 #
-#     def get_info(self):
-#         return f"Название: {self.title}, Автор: {self.author}, Год издания: {self.year}"
+#     @property
+#     def info(self):
+#         return f"Название: {self._title}, Автор: {self._author}, Год издания: {self._year}"
 #
 #
 # book = Book("Знайка в земле", "Вася Пупкин", 1900)
-# print(book.get_info())
+# print(book.info)
 
 
 # Создайте класс Product с атрибутами name (название товара) и price (цена).
@@ -116,23 +119,24 @@ print(f"Средний балл для {student.get_name()}: {student.get_averag
 # class Product:
 #     def __init__(self, name, price):
 #         # Инициализация продукта (название и цена)
-#         self.name = name
-#         self.price = price
+#         self._name = name
+#         self._price = price
 #
 #
 # class Cart:
 #     def __init__(self):
 #         # Инициализация пустой корзины
-#         self.cart = []
+#         self._cart = []
 #
 #     def add_product(self, product):
 #         # Метод для добавления продукта в корзину
-#         self.cart.append(product)
+#         self._cart.append(product)
 #
+#     @property
 #     def total_price(self):
 #         # Метод для вычисления общей стоимости товаров в корзине
 #         total_price = 0
-#         for product in self.cart:
+#         for product in self._cart:
 #             total_price += product.price
 #         return total_price
 #
@@ -144,4 +148,4 @@ print(f"Средний балл для {student.get_name()}: {student.get_averag
 # cart.add_product(hleb)
 # cart.add_product(milk)
 # cart.add_product(kolbasa)
-# print(cart.total_price())
+# print(cart.total_price)
