@@ -39,7 +39,7 @@
 #     def __init__(self, name):
 #         # Инициализация имени студента и пустого списка оценок
 #         self._name = name
-#         self._grades = []
+#         self.__grades = []
 #
 #     @property
 #     def name(self):
@@ -51,16 +51,16 @@
 #
 #     def add_grade(self, grade):
 #         # Метод для добавления новой оценки
-#         self._grades.append(grade)
+#         self.__grades.append(grade)
 #
 #     def add_grades(self, grades):
 #         # Метод для добавления новой оценки
-#         self._grades.extend(grades)
+#         self.__grades.extend(grades)
 #
 #     @property
 #     def average_grade(self):
 #         # Метод для вычисления среднего балла
-#         return sum(self._grades) / len(self._grades)
+#         return sum(self.__grades) / len(self.__grades)
 #
 #
 # student = Student('John')
@@ -116,36 +116,73 @@
 # Создайте класс Product с атрибутами name (название товара) и price (цена).
 # Создайте класс Cart для хранения списка продуктов и метод для вычисления общей стоимости.
 
-# class Product:
-#     def __init__(self, name, price):
-#         # Инициализация продукта (название и цена)
-#         self._name = name
-#         self._price = price
-#
-#
-# class Cart:
-#     def __init__(self):
-#         # Инициализация пустой корзины
-#         self._cart = []
-#
-#     def add_product(self, product):
-#         # Метод для добавления продукта в корзину
-#         self._cart.append(product)
-#
-#     @property
-#     def total_price(self):
-#         # Метод для вычисления общей стоимости товаров в корзине
-#         total_price = 0
-#         for product in self._cart:
-#             total_price += product.price
-#         return total_price
-#
-#
-# cart = Cart()
-# hleb = Product("Hleb", 10)
-# milk = Product("Milk", 20)
-# kolbasa = Product("Kolbasa", 30)
-# cart.add_product(hleb)
-# cart.add_product(milk)
-# cart.add_product(kolbasa)
-# print(cart.total_price)
+class Product:
+    def __init__(self, name, price, discount=0):
+        # Инициализация продукта (название и цена)
+        self._name = name
+        self._price = price
+        self._discount = discount
+
+    def __repr__(self):
+        return f"<{self._name}: {self.price}>"
+
+    def __call__(self, amount):
+        return self.price * amount
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        self._name = name
+
+    @property
+    def price(self):
+        return self._price - self._price * self._discount
+
+    @price.setter
+    def price(self, price):
+        self._price = price
+
+    @property
+    def discount(self):
+        return self._discount
+
+    @discount.setter
+    def discount(self, discount):
+        self._discount = discount
+
+
+class Cart:
+    def __init__(self):
+        # Инициализация пустой корзины
+        self._cart = []
+
+    def __len__(self):
+        return len(self._cart)
+
+    def add_product(self, product):
+        # Метод для добавления продукта в корзину
+        self._cart.append(product)
+
+    @property
+    def total_price(self):
+        # Метод для вычисления общей стоимости товаров в корзине
+        total_price = 0
+        for product in self._cart:
+            total_price += product.price
+        return total_price
+
+
+cart = Cart()
+hleb = Product("Hleb", 10)
+milk = Product("Milk", 20)
+kolbasa = Product("Kolbasa", 30)
+cart.add_product(hleb)
+cart.add_product(milk)
+cart.add_product(kolbasa)
+print(cart.total_price)
+print(milk) # обращение к объекту
+print(milk(20)) # вызов объекта
+print(len(cart))
