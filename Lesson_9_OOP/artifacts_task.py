@@ -118,8 +118,11 @@ class Backpack:
         self._backpack = []
 
     def __repr__(self):
-        return (f"РЮКЗАК{{\nКоличество предметов в рюкзаке: {len(self._backpack)}\nСтоимость предметов:"
+        info = (f"РЮКЗАК{{\nКоличество предметов в рюкзаке: {len(self._backpack)}\nСтоимость предметов:"
                 f"{self.get_total_price()}\nМощь предметов: {self.get_total_power()}\nПредметы в рюкзаке:")
+        for artifact in self._backpack:
+            info += f"    {artifact.name}\n        "
+        return info
 
     def add(self, artifact):
         self._backpack.append(artifact)
@@ -153,6 +156,7 @@ backpack = Backpack()
 backpack.add(wizard_hat)
 backpack.add(speed_boots)
 backpack.add(god_sword)
+print(backpack)
 
 """
 print(backpack) должен вывести (оступы - пробелы):
