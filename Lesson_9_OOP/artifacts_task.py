@@ -118,10 +118,14 @@ class Backpack:
         self._backpack = []
 
     def __repr__(self):
-        info = (f"РЮКЗАК{{\nКоличество предметов в рюкзаке: {len(self._backpack)}\nСтоимость предметов:"
-                f"{self.get_total_price()}\nМощь предметов: {self.get_total_power()}\nПредметы в рюкзаке:")
+        info = (f"РЮКЗАК {{\n"
+                f"Количество предметов в рюкзаке: {len(self._backpack)}\n"
+                f"Стоимость предметов: {self.get_total_price()}\n"
+                f"Мощь предметов: {self.get_total_power()}\n\n"
+                f"Предметы в рюкзаке:\n")
         for artifact in self._backpack:
-            info += f"    {artifact.name}\n        "
+            info += f"    {artifact.name}\n        сила: {artifact.power}\n        стоимость: {artifact.price}\n"
+        info += "\r}"
         return info
 
     def add(self, artifact):
