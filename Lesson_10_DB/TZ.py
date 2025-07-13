@@ -30,40 +30,73 @@
 Программа должна корректно обрабатывать ошибки (например, неправильный ввод индекса задачи или пустой список задач).
 """
 import os
-
+import psycopg2
 from colorama import just_fix_windows_console, init, Fore, Back, Style
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+class DB:
+
+    def __init__(self):
+        self.conn = psycopg2.connect(
+            dbname=os.getenv('DBNAME'),
+            user=os.getenv('USER'),
+            password=os.getenv('PASSWORD'),
+            host=os.getenv('HOST'),
+            port=os.getenv('PORT')
+        )
+
+    def __del__(self):
+        self.conn.close()
+
+    def execute(self, query, commit=False):
+        with self.conn.cursor() as cursor:
+            try:
+                cursor.execute(query)
+                if commit:
+                    self.conn.commit()
+                else:
+                    return cursor.fetchall()
+            except psycopg2.OperationalError as e:
+                print(f'Unable to connect!\n {e}')
+                exit()
+
+
+db = DB()
 
 
 def create():
-    task = input("Введите задачу\n")
-    with open('file.txt', 'a', encoding='utf-8') as f:
-        data = task + '\n'
-        f.write(data)
+    name = input("Введите задачу\n")
+    description = input("Введите описание\n")
+    date_due = input("Введите дату\n")
+    is_done = input("Введите статус\n")
+    db.execute(f"INSERT INTO task (name, description, date_due, is_done) "
+               f"VALUES ('{name}','{description}', '{date_due}','{is_done}')", commit=True)
 
 
-def read_file():
+def read_task():
     try:
-        with open('file.txt', 'r', encoding='utf-8') as f:
-            b = f.readlines()
-    except FileNotFoundError:
-        with open('file.txt', 'w', encoding='utf-8') as f:
-            b = []
-    return b
+        b = db.execute("SELECT id, name FROM task ORDER BY id")
+        return b
+    except psycopg2.OperationalError as e:
+        print(f'Unable to connect!\n {e}')
+        exit()
 
 
 def digit_input(a):
     while True:
         index = input()
         if index.isdigit():
-            if 0 < int(index) <= a:
-                return int(index)
+            return int(index)
         print("\033[31mВведенный символ вне диапазона или не является числом\033[0m")
 
 
 def view():
-    c = read_file()
-    for index, task in enumerate(c, 1):
-        print(f'[{index}] {task}', end='')
+    c = read_task()
+    for index, task in c:
+        print(f'[{index}] {task}')
     return c
 
 
@@ -73,12 +106,11 @@ def update():
         print("Введите индекс задачи для редактирования:\n")
         index = digit_input(len(c))
         new_task = input("Введите новый текст задачи\n")
-        c[index - 1] = new_task + '\n'
-        with open('file.txt', 'w', encoding='utf-8') as f:
-            f.writelines(c)
+        db.execute(
+            f"UPDATE task SET name = '{new_task}' WHERE id = {index}", commit=True
+        )
         print("Обновленный список задач:")
         view()
-        input()
 
 
 def delete():
@@ -86,12 +118,14 @@ def delete():
     c = view()
     if c:
         index = digit_input(len(c))
-        del c[index - 1]
-        with open('file.txt', 'w', encoding='utf-8') as f:
-            f.writelines(c)
-        print("Обновленный список задач:")
-        view()
-        input()
+        try:
+            db.execute(
+                f"DELETE FROM task WHERE id = {index}", commit=True
+            )
+            print("Обновленный список задач:")
+            view()
+        except:
+            input()
 
 
 def main():
