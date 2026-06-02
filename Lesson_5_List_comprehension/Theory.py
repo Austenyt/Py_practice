@@ -1,3 +1,42 @@
+s = 'Hello world!'
+lst = []
+for c in s:
+    lst.append(c.upper())
+print(lst)
+
+result = [c.upper() for c in s]
+print(result)
+
+d = {c: i for i, c in enumerate(s)}
+print(d)
+d = {k: v*10 for k, v in d.items()}
+print(d)
+
+a = 10
+if a >= 10:
+    b = "YES"
+else:
+    b = "NO"
+print(b)
+b = "YES" if a >= 10 else "NO"
+print(b)
+
+a = ['dog', 'cat', 'bird', 'croc']
+lst = ["YES" if len(el) == 3 else "NO" for el in a]
+print(lst)
+lst = []
+for el in a:
+    if len(el) == 3:
+        lst.append("YES")
+    else:
+        lst.append("NO")
+
+lst_2 = ["YES" for el in a if len(el) == 3]
+print(lst_2)
+lst_2 = []
+for el in a:
+    if len(el) == 3:
+        lst_2.append("YES")
 """
 Создайте список чисел от 1 до 20
 """
