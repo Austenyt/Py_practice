@@ -115,22 +115,40 @@ from html.entities import name2codepoint
 # text = 'Racecar'
 # print(is_palindrome(text))
 
-class Counter:
-    def __init__(self):
-        self.value = 0
+# class Counter:
+#     def __init__(self):
+#         self.value = 0
+#
+#     def increase(self, amount=1):
+#         self.value += amount
+#
+#     def decrease(self, amount=1):
+#         self.value -= amount
+#
+#     def getValue(self):
+#         return self.value
+#
+#
+# counter = Counter()
+# counter.decrease(10)
+# counter.increase(15)
+#
+# print(counter.getValue())
 
-    def increase(self, amount=1):
-        self.value += amount
+# def move_zeroes(nums):
+#     new_nums = []
+#     zero_count = 0
+#     for num in nums:
+#         if num == 0:
+#             zero_count += 1
+#         else:
+#             new_nums.append(num)
+#     new_nums.extend([0] * zero_count)
+#     return new_nums
 
-    def decrease(self, amount=1):
-        self.value -= amount
+def move_zeroes(nums):
+    return [x for x in nums if x != 0] + [0] * nums.count(0)
 
-    def getValue(self):
-        return self.value
+nums = [0, 1, 0, 3, 12]
+print(move_zeroes(nums))
 
-
-counter = Counter()
-counter.decrease(10)
-counter.increase(15)
-
-print(counter.getValue())
