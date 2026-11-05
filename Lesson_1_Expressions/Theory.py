@@ -54,3 +54,31 @@ n школьников делят k яблок поровну, неделящи�
 #     print("Лето")
 # else:
 #     print("Осень")
+
+# Логическое И (and)
+print(True and True)    # True
+print(True and False)   # False
+print(5 > 3 and 2 < 4)  # True
+
+# Логическое ИЛИ (or)
+print(True or False)    # True
+print(False or False)   # False
+
+# Логическое НЕ (not)
+print(not True)         # False
+print(not 0)            # True (0 = False)
+
+# Особенности Python:
+# and и or возвращают последнее вычисленное значение
+print(3 and 5)          # 5
+print(0 and 5)          # 0
+print(3 or 5)           # 3
+print(0 or 5)           # 5
+
+# Короткий цикл вычислений
+def foo():
+    print("called")
+    return True
+
+print(False and foo())  # foo() не вызывается!
+print(True or foo())    # foo() не вызывается!
