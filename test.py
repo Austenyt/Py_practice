@@ -146,9 +146,41 @@ from html.entities import name2codepoint
 #     new_nums.extend([0] * zero_count)
 #     return new_nums
 
-def move_zeroes(nums):
-    return [x for x in nums if x != 0] + [0] * nums.count(0)
+# def move_zeroes(nums):
+#     return [x for x in nums if x != 0] + [0] * nums.count(0)
+#
+# nums = [0, 1, 0, 3, 12]
+# print(move_zeroes(nums))
 
-nums = [0, 1, 0, 3, 12]
-print(move_zeroes(nums))
 
+# def is_divisible_by_digits(num):
+#     num_str = str(num)
+#     for n in num_str:
+#         if int(n) != 0 and num % int(n) != 0:
+#             return False
+#     return True
+#
+# num = 128
+# print(is_divisible_by_digits(num))
+
+# def flat(arr):
+#     new_arr = []
+#     for item in arr:
+#         if isinstance(item, (list, tuple)):
+#             for i in item:
+#                 new_arr.append(i)
+#         else:
+#             new_arr.append(item)
+#     return new_arr
+#
+# arr = [(1, 2, 'a'), ('bb',), ('cc', 'dd', 1)]
+# print(flat(arr))
+
+def even_chars(s):
+    new_s = ''
+    for i in s[::2]:
+        new_s += i
+    return new_s
+
+s = 'Hello'
+print(even_chars(s))

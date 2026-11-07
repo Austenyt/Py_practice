@@ -92,7 +92,7 @@ describe_number(number) возвращает строку: "четное" или
 #         print("Число нечетное")
 #
 #
-# number = 10
+# number = 11
 # describe_number(number)
 
 """
@@ -109,7 +109,7 @@ show_temperature(celsius) выводит исходную и converted темп�
 #     print(celsius_to_fahrenheit(celsius))
 #
 #
-# celsius = 49
+# celsius = 23
 # show_temperature(celsius)
 
 """
@@ -129,7 +129,7 @@ get_status(average) возвращает "сдал" или "не сдал".
 #         print("Не сдал")
 #
 #
-# grades = [3, 4, 3]
+# grades = [3, 4, 5]
 # get_status(calculate_average(grades))
 
 """
@@ -167,7 +167,7 @@ final_price(price, percent) возвращает цену после скидк�
 #     print(price - calculate_discount(price, percent))
 #
 #
-# price = 1000
+# price = 10000
 # percent = 10
 # final_price(price, percent)
 
@@ -342,16 +342,16 @@ access_message(age) возвращает "доступ разрешен" или 
 """
 
 
-def is_adult(age):
-    return age >= 18
-
-
-def access_message(age):
-    if is_adult(age):
-        print("Доступ разрешен")
-    else:
-        print("Доступ запрещен")
-
-
-age = 17.99999999999999
-access_message(age)
+# def is_adult(age):
+#     return age >= 18
+#
+#
+# def access_message(age):
+#     if is_adult(age):
+#         print("Доступ разрешен")
+#     else:
+#         print("Доступ запрещен")
+#
+#
+# age = 17.99999999999999
+# access_message(age)
