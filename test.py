@@ -176,11 +176,49 @@ from html.entities import name2codepoint
 # arr = [(1, 2, 'a'), ('bb',), ('cc', 'dd', 1)]
 # print(flat(arr))
 
-def even_chars(s):
-    new_s = ''
-    for i in s[::2]:
-        new_s += i
-    return new_s
+# def even_chars(s):
+#     new_s = ''
+#     for i in s[::2]:
+#         new_s += i
+#     return new_s
+#
+#
+# s = 'Hello'
+# print(even_chars(s))
 
-s = 'Hello'
-print(even_chars(s))
+
+# def reverse_words(sentence):
+#     return ' '.join(sentence.split()[::-1])
+#
+#
+# sentence = 'a good   example'
+# print(reverse_words(sentence))
+
+# def is_happy_number(number):
+#     new_string = str(number)
+#     if len(new_string) % 2 != 0:
+#         return False
+#     half = len(new_string) // 2
+#     prod_1 = 1
+#     prod_2 = 1
+#     for i_1 in new_string[:half]:
+#         prod_1 *= int(i_1)
+#     for i_2 in new_string[half:]:
+#         prod_2 *= int(i_2)
+#     return prod_1 == prod_2
+#
+#
+# number = 6262
+# print(is_happy_number(number))
+
+
+def score_of_string(s):
+    total = 0
+    for i, ch in enumerate(s[:-1]):
+        mid_total = abs(ord(s[i]) - ord(s[i + 1]))
+        total += mid_total
+    return total
+
+
+s = 'hello'
+print(score_of_string(s))
