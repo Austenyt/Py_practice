@@ -212,13 +212,89 @@ from html.entities import name2codepoint
 # print(is_happy_number(number))
 
 
-def score_of_string(s):
-    total = 0
-    for i, ch in enumerate(s[:-1]):
-        mid_total = abs(ord(s[i]) - ord(s[i + 1]))
-        total += mid_total
-    return total
+# def score_of_string(s):
+#     total = 0
+#     for i, ch in enumerate(s[:-1]):
+#         mid_total = abs(ord(s[i]) - ord(s[i + 1]))
+#         total += mid_total
+#     return total
+#
+#
+# s = 'hello'
+# print(score_of_string(s))
 
 
-s = 'hello'
-print(score_of_string(s))
+# def missing_number(nums):
+#     nums.sort()
+#     if nums[0] != 0:
+#         return 0
+#     prev = nums[0]
+#     for num in nums[1:]:
+#         if num == prev + 1:
+#             prev = num
+#     return prev + 1
+#
+#
+# nums = [1, 2]
+# print(missing_number(nums))
+
+import calendar
+
+# def get_day_of_week(month, day, year):
+#
+#
+# month = 8
+# day = 5
+# year = 2015
+# print(get_day_of_week(month, day, year))
+
+
+class BankAccount:
+
+    def __init__(self, initial_balance: object = 0):
+        if initial_balance < 0:
+            raise ValueError("Initial balance cannot be negative")
+        self.balance = initial_balance
+
+    def get_balance(self):
+        return self.balance
+
+    def deposit(self, amount):
+        if amount <= 0:
+            raise ValueError("Deposit amount must be positive")
+        self.balance += amount
+        return self.balance
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            raise ValueError("Withdrawal amount must be positive")
+        if self.balance < amount:
+            raise ValueError("Insufficient funds")
+        self.balance -= amount
+        return self.balance
+
+    def transfer(self, target_account, amount):
+        if not isinstance(target_account, BankAccount):
+            raise TypeError("Target must be a BankAccount")
+        self.withdraw(amount)
+        try:
+            target_account.deposit(amount)
+        except Exception:
+            self.deposit(amount)
+            raise
+        return self.balance
+
+
+sender = BankAccount(100)
+receiver = BankAccount()
+
+sender.deposit(50)
+# вернёт 150
+
+sender.withdraw(30)
+# # вернёт 120
+#
+sender.transfer(receiver, 20)
+# # вернёт 100
+
+print(receiver.get_balance())
