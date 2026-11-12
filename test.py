@@ -224,13 +224,19 @@ from html.entities import name2codepoint
 # print(score_of_string(s))
 
 
-def missing_number(nums):
-    n = len(nums)
-    return int(n * (n + 1) / 2 - sum(nums))
-
-
-nums = [9, 6, 4, 2, 3, 5, 7, 0, 1]
-print(missing_number(nums))
+# def missing_number(nums):
+#     nums.sort()
+#     if nums[0] != 0:
+#         return 0
+#     prev = nums[0]
+#     for num in nums[1:]:
+#         if num == prev + 1:
+#             prev = num
+#     return prev + 1
+#
+#
+# nums = [1, 2]
+# print(missing_number(nums))
 
 import calendar
 
@@ -292,3 +298,48 @@ import calendar
 # # # вернёт 100
 #
 # print(receiver.get_balance())
+
+"""Первый класс - Описывает товары в магазине. У продукта есть наименование, цена, кол-во. Методы get_product_info - 
+информация о товаре, is_available - проверяет доступность товара, может ли пользователь купить товар и нужное кол-во в 
+принципе. Второй класс магазин - название и продукты, который в магазине представлены. add_product, remove_product, 
+find_product, get_products, get_available_products (получить список доступных продуктов, т.е. больше 0). 3 класс Корзина
+"""
+class Product:
+
+    def __init__(self, name, price, qty):
+        self.name = name
+        self.price = price
+        self.qty = qty
+
+    def get_product_info(self, name):
+        return f'Товар {name} продаётся по цене {self.price}'
+
+    def is_available(self, name):
+        if self.qty > 0:
+            return f'Товар {name} в наличии в количестве {self.qty}'
+        return f'Товара {name} нет в наличии'
+
+
+class Shop:
+
+    def __init__(self, name):
+        self.name = name
+        self.products = []
+
+    def add_product(self, product):
+        self.products.append(product)
+
+    def get_products(self):
+        return self.products
+
+
+product_1 = Product(name="Бананы", price=100, qty=50)
+product_2 = Product(name="Яблоки", price=80, qty=100)
+product_3 = Product(name="Апельсины", price=120, qty=30)
+shop_1 = Shop("Да")
+shop_1.add_product(product_1)
+shop_1.add_product(product_2)
+shop_1.add_product(product_3)
+prods = shop_1.get_products()
+for prod in prods:
+    print(prod.name, prod.price, prod.qty)
