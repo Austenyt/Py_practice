@@ -441,6 +441,7 @@ from platform import python_revision
 
 num_rows = 9
 new_list = []
-for rows in range(1, num_rows + 1):
-    new_list.append([row for row in range(1, rows + 1)])
+prev = [1]
+for rows in range(num_rows):
+    new_list.append([1] + и здесь нечто + [1])
     print(new_list)
