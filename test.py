@@ -431,17 +431,15 @@ from platform import python_revision
 # s = 'aaabbcaaaa'
 # print(longest_run(s))
 
-# def generate_pascal_triangle(num_rows):
-#     row_list = []
-#     for num in range(0, num_rows + 1):
-#
-#
-# num_rows = 4
-# print(generate_pascal_triangle(num_rows))
+def generate_pascal_triangle(num_rows):
+    if num_rows == 0:
+        return []
+    else:
+        result = [[1]]
+        for _ in range(num_rows - 1):
+            prev = result[-1]
+            result.append([1] + [prev[i] + prev[i + 1] for i in range(len(prev) - 1)] + [1])
+        return result
 
-num_rows = 9
-new_list = []
-prev = [1]
-for rows in range(num_rows):
-    new_list.append([1] + и здесь нечто + [1])
-    print(new_list)
+num_rows = 1000
+print(generate_pascal_triangle(num_rows))
